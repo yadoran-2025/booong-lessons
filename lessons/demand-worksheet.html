@@ -8,8 +8,8 @@
     :root {
       --bg: #f3f5f7;
       --paper: #ffffff;
-      --ink: #17202a;
-      --muted: #65758b;
+      --ink: #14202e;
+      --muted: #66758a;
       --line: #d8e0ea;
       --line-strong: #8c9aab;
       --blue: #2563eb;
@@ -120,25 +120,58 @@
       font-size: 14px;
     }
 
+    .definition-box {
+      position: relative;
+      min-height: 138px;
+      padding: 36px 18px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      background:
+        repeating-linear-gradient(to bottom, #fff 0, #fff 35px, var(--line) 35px, var(--line) 36px);
+      overflow: hidden;
+    }
+
+    .definition-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--line);
+      background: #f8fbff;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
     .guide {
       display: grid;
+      grid-template-columns: auto 1fr;
       gap: 10px;
-      margin-left: 40px;
-      padding: 14px 16px;
+      align-items: center;
+      margin-top: 10px;
+      padding: 13px 16px;
       border: 1.5px solid #b9ccff;
       border-radius: 8px;
       background: var(--blue-soft);
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    .definition-box {
-      min-height: 118px;
-      border: 1.5px solid var(--line);
-      border-radius: 8px;
-      background:
-        linear-gradient(#fff 35px, transparent 35px) 0 0 / 100% 36px,
-        repeating-linear-gradient(to bottom, transparent 0, transparent 35px, var(--line) 35px, var(--line) 36px);
+    .guide-badge {
+      display: inline-grid;
+      place-items: center;
+      min-width: 68px;
+      height: 30px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--blue);
+      border: 1px solid #b9ccff;
+      font-size: 13px;
+      font-weight: 900;
     }
 
     .response-table {
@@ -154,7 +187,7 @@
     }
 
     .response-grid > div {
-      min-height: 50px;
+      min-height: 56px;
       padding: 10px 12px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -174,28 +207,51 @@
 
     .table-head {
       background: var(--blue-soft);
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .row-label {
       justify-content: flex-start !important;
       text-align: left !important;
-      font-weight: 800;
+      font-weight: 850;
       background: #fafbfc;
+    }
+
+    .write-cell {
+      background:
+        linear-gradient(to bottom, transparent 26px, rgba(37, 99, 235, .28) 27px, transparent 28px);
     }
 
     .graph-instructions {
       display: grid;
-      gap: 8px;
+      gap: 10px;
       margin: 14px 0 16px;
-      padding: 14px 16px;
+    }
+
+    .task-card {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 16px;
       border-left: 5px solid var(--teal);
       background: var(--teal-soft);
       border-radius: 8px;
-      font-weight: 750;
+      font-weight: 800;
     }
 
-    .graph-instructions p {
+    .task-number {
+      width: 30px;
+      height: 30px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .task-card p {
       margin: 0;
     }
 
@@ -327,7 +383,6 @@
         font-size: 28px;
       }
 
-      .guide,
       .note {
         margin-left: 0;
       }
@@ -365,7 +420,7 @@
       }
 
       .definition-box {
-        min-height: 96px;
+        min-height: 116px;
       }
 
       .graph {
@@ -395,11 +450,14 @@
     <section class="section">
       <div class="section-title">
         <span class="number">1</span>
-        <h2>“수요”란 무엇인가?</h2>
+        <h2>"수요"란 무엇인가?</h2>
       </div>
       <p class="note">교과서에서 수요의 뜻을 찾아 아래에 써 봅시다.</p>
-      <div class="definition-box" aria-label="수요 정의 작성 공간"></div>
+      <div class="definition-box" aria-label="수요의 뜻 작성 공간">
+        <span class="definition-label">수요의 뜻</span>
+      </div>
       <div class="guide">
+        <span class="guide-badge">다음 활동</span>
         <span>이제 설문에 응답한 뒤, 나와 친구들의 선택이 그래프 위에서 어떻게 나타나는지 살펴봅시다.</span>
       </div>
     </section>
@@ -409,21 +467,21 @@
         <span class="number">2</span>
         <h2>나의 응답을 적어봅시다</h2>
       </div>
-      <p class="note">설문에서 내가 선택한 수량을 상품별로 정리해 봅시다.</p>
+      <p class="note">설문에서 내가 선택한 가격과 수량을 상품별로 정리해 봅시다.</p>
       <div class="response-table">
         <div class="response-grid">
           <div class="table-head">구분</div>
           <div class="table-head">빵</div>
           <div class="table-head">팥빙수</div>
           <div class="table-head">KFC</div>
-          <div class="row-label">내가 산 개수</div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div class="row-label">옆 친구가 산 개수</div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div class="row-label">얼마에 몇 개? (나)</div>
+          <div class="write-cell"></div>
+          <div class="write-cell"></div>
+          <div class="write-cell"></div>
+          <div class="row-label">얼마에 몇 개? (친구)</div>
+          <div class="write-cell"></div>
+          <div class="write-cell"></div>
+          <div class="write-cell"></div>
         </div>
       </div>
     </section>
@@ -431,11 +489,17 @@
     <section class="section">
       <div class="section-title">
         <span class="number">3</span>
-        <h2>수요곡선이란 무엇일까?</h2>
+        <h2>수요곡선은 무엇일까?</h2>
       </div>
-      <div class="graph-instructions">
-        <p>y축을 가격, x축을 수량이라고 할 때, 나의 응답은 그래프에 어떻게 표기되나요?</p>
-        <p>옆 친구의 응답은 그래프에 어떻게 표기될까요?</p>
+      <div class="graph-instructions" aria-label="그래프 과제 안내">
+        <div class="task-card">
+          <span class="task-number">1</span>
+          <p>y축을 가격, x축을 수량이라고 할 때, 나의 응답은 그래프에 어떻게 표시되나요?</p>
+        </div>
+        <div class="task-card">
+          <span class="task-number">2</span>
+          <p>옆 친구의 응답은 그래프에 어떻게 표시될까요?</p>
+        </div>
       </div>
 
       <div class="graphs">
@@ -469,8 +533,8 @@
 
       <div class="thinking">
         <strong>생각해보기</strong>
-        <p>그런 점이 수없이 많이 쌓인다고 생각해봅시다. 그렇다면 우리 반 전체의 응답은 그래프에 어떻게 표기될까요?</p>
-        <p>우리 학교 전체의 응답은 그래프에 어떻게 표기될까요?</p>
+        <p>그래프 점이 하나만 찍힌다고 생각해봅시다. 그렇다면 우리 반 전체의 응답은 그래프에 어떻게 표시될까요?</p>
+        <p>우리 학급 전체의 응답을 연결하면 어떤 모양이 나타날까요?</p>
       </div>
     </section>
 
@@ -481,15 +545,16 @@
       </div>
       <div class="summary">
         <div class="summary-row">
-          <span>상품의 가격이 떨어질 때, 사람들이 그 상품을 수요하는 양(수요량)은</span>
+          <span>상품의 가격이 변할 때 사람들이 그 상품을 사고자 하는 양을</span>
           <span class="summary-blank"></span>
+          <span>라고 합니다.</span>
         </div>
         <div class="summary-row">
-          <span>대다수 상품들의 수요곡선은,</span>
+          <span>대다수 상품의 수요곡선은,</span>
           <span class="summary-inline-blank"></span>
-          <span>으로 갈수록 아래로 내려가는 모양을 띈다. 이를 수요곡선이</span>
+          <span>으로 갈수록 아래로 내려가는 모양입니다. 이를 수요곡선이</span>
           <span class="summary-inline-blank"></span>
-          <span>한다고 한다.</span>
+          <span>한다고 합니다.</span>
         </div>
       </div>
     </section>
